@@ -6,7 +6,19 @@ const app = express();
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-   res.render('about.ejs');
+   res.render('about.ejs'); 
+});
+
+//middleware
+app.use(express.static('./public'));
+
+//get '/' route
+app.get('/contact', function (req, res) {
+   res.render('contact.ejs');
+});
+
+app.get('/projects', function (req, res) {
+   res.render('projects.ejs');
 });
 
 app.listen(3000, function(){
